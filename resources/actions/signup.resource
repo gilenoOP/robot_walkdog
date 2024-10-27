@@ -30,12 +30,13 @@ Submit signup form
     Click                      text=Cadastrar
 
 Alert should be
-    Informe o seu nome completo
-    Informe o seu melhor email
-    Informe o seu CPF
-    Informe o seu CEP
-    Informe um número maior que
-    Adcione um documento com foto
+    [Arguments]    ${expected_alert_text}
+    Wait For Elements State    css=.alert-error >> text=${expected_alert_text}    visible    5
+    Wait For Elements State    css=.alert-error >> text=${expected_alert_text}    visible    5
+    Wait For Elements State    css=.alert-error >> text=${expected_alert_text}    visible    5
+    Wait For Elements State    css=.alert-error >> text=${expected_alert_text}    visible    5
+    Wait For Elements State    css=.alert-error >> text=${expected_alert_text}    visible    5
+    Wait For Elements State    css=.alert-error >> text=${expected_alert_text}    visible    5
 
 Popup should be
     [Arguments]    ${expected_popup_text}
