@@ -1,11 +1,12 @@
 *** Settings ***
-Documentation        Home page
+Documentation        Tela de homepage
 
-Library        Browser
+Library     Browser
+Resource       ../resources/fixtures/env.resource
 
 *** Test Cases ***
-Home page deve estar online
-    New Browser    browser=chromium    headless=False
+Validate Homepage
+    New Browser                browser=${BROWSER}    headless=False
     New Page    https://walkdog.vercel.app
-    Get Text    h1    equal    Cuidado e diversão em cada passo
-    Take Screenshot
+    Wait For Elements State    css=a[href="/signup"] strong    visible
+    Get Text    css=a[href="/signup"] strong    equal    Quero ser Dog Walker

@@ -25,8 +25,17 @@ Fill signup form
     Fill Text                  css=input[name="addressNumber"]      ${dog_walker}[number]
     Fill Text                  css=input[name="addressDetails"]     ${dog_walker}[details]
     Upload File By Selector    input[type=file]                     ${EXECDIR}/resources/fixtures/${dog_walker}[doc_image]
-    
+
+Click on the service button
+    [Arguments]    @{services}
+    FOR    ${service}    IN    @{services}
+        Click    xpath=//span[text()="${service}"]/..
+    END
+
+Click on the Train button
+    Click    css=img[alt=Adestrar]
 Submit signup form
+    Take Screenshot    fullPage=True
     Click                      text=Cadastrar
 
 Alert should be
